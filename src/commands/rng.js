@@ -6,7 +6,7 @@ module.exports = {
         .setDescription("Replies with a random number")
         .addNumberOption((option) =>
             option
-                .setName("max")
+                .setName("range")
                 .setDescription("The maximum random number")
                 .setRequired(true)
                 .addChoices(
@@ -16,7 +16,7 @@ module.exports = {
                 )
         ),
     async execute(interaction) {
-        const multiplier = interaction.options.getNumber("max");
+        const multiplier = interaction.options.getNumber("range");
         let randomNumber = String(Math.round(Math.random() * multiplier));
 
         await interaction.reply(randomNumber);
