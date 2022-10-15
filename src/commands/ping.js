@@ -3,8 +3,9 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("ping")
-        .setDescription("Replies with pong to test if the bot is online"),
+        .setDescription("Replies with the latency"),
     async execute(interaction) {
-        await interaction.reply("Pong!");
+        let latency = Date.now() - interaction.createdTimestamp;
+        await interaction.reply(`The latency is ${latency}ms`);
     },
 };
