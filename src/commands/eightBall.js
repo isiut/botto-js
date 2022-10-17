@@ -34,7 +34,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("8ball")
         .setDescription("Replies with an 8-ball response")
-        
+
         // The prompt is never read;
         // it is just provided so that the user can ask a question
         .addStringOption((option) =>
@@ -44,7 +44,7 @@ module.exports = {
                 .setRequired(false)
         ),
     async execute(interaction) {
-        let choice = responses[Math.round(Math.random() * responses.length)];
+        const choice = responses[Math.round(Math.random() * responses.length)];
 
         await interaction.reply(choice);
     },

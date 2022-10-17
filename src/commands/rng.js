@@ -17,7 +17,7 @@ module.exports = {
         ),
     async execute(interaction) {
         const multiplier = interaction.options.getNumber("range");
-        let randomNumber = String(Math.round(Math.random() * multiplier));
+        const randomNumber = String(Math.round(Math.random() * multiplier));
 
         await interaction.reply(randomNumber);
     },
