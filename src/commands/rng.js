@@ -7,7 +7,9 @@ module.exports = {
         .addNumberOption((option) =>
             option
                 .setName("range")
-                .setDescription("The maximum random number")
+                .setDescription(
+                    "The range between which the random number will be generated"
+                )
                 .setRequired(true)
                 .addChoices(
                     { name: "0-10", value: 10 },
