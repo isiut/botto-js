@@ -8,10 +8,10 @@ A Discord bot made with JavaScript and discord.js for the purpose of practicing 
 
 -   Magic 8-ball (done)
 -   Memes from reddit
--   Unit conversions
+-   Unit conversions (in progress)
 -   Weather data
 -   Dictionary lookup
--   Rock Paper Scissors
+-   Rock Paper Scissors (done)
 -   Higher or lower number game
 -   Random username generator
 -   Moderation commands
