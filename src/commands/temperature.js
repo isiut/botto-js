@@ -4,12 +4,12 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("temperature")
         .setDescription(
-            "Converts a temperature unit to all other units (°F, °C, °K)"
+            "Replies with the temperature converted to different units"
         )
         .addSubcommand((subcommand) =>
             subcommand
                 .setName("fahrenheit")
-                .setDescription("Converts Fahrenheit to Celsius and Kelvin")
+                .setDescription("Converts degrees Fahrenheit (°F)")
                 .addNumberOption((option) =>
                     option
                         .setName("value")
@@ -20,7 +20,7 @@ module.exports = {
         .addSubcommand((subcommand) =>
             subcommand
                 .setName("celsius")
-                .setDescription("Converts Celsius to Fahrenheit and Kelvin")
+                .setDescription("Converts degrees Celsius (°C)")
                 .addNumberOption((option) =>
                     option
                         .setName("value")
@@ -31,7 +31,7 @@ module.exports = {
         .addSubcommand((subcommand) =>
             subcommand
                 .setName("kelvin")
-                .setDescription("Converts Kelvin to Fahrenheit and Celsius")
+                .setDescription("Converts degrees Kelvin (°K)")
                 .addNumberOption((option) =>
                     option
                         .setName("value")
@@ -47,17 +47,17 @@ module.exports = {
             const c = (val - 32) * (5 / 9);
             const k = c + 273.15;
 
-            await interaction.reply(`${val} °F:\n• ${c} °C\n• ${k} °K`);
+            await interaction.reply(`${val} °F:\n= ${c} °C\n= ${k} °K`);
         } else if (subCmd === "celsius") {
             const f = val * (9 / 5) + 32;
             const k = val + 273.15;
 
-            await interaction.reply(`${val} °C:\n• ${f} °F\n• ${k} °K`);
+            await interaction.reply(`${val} °C:\n= ${f} °F\n= ${k} °K`);
         } else if (subCmd === "kelvin") {
             const f = (val - 273.15) * (9 / 5) + 32;
             const c = val - 273.15;
 
-            await interaction.reply(`${val} °K:\n• ${f} °F\n• ${c} °C`);
+            await interaction.reply(`${val} °K:\n= ${f} °F\n= ${c} °C`);
         }
     },
 };
