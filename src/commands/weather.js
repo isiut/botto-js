@@ -18,16 +18,21 @@ module.exports = {
         weather.find({ search: city }, async function (err, result) {
             if (err) {
                 console.log(err);
-                return;
             }
 
-            location = result[0].location.name;
-            conditions = result[0].current.skytext;
-            temperature = result[0].current.temperature;
+            try {
+                location = result[0].location.name;
+                conditions = result[0].current.skytext;
+                temperature = result[0].current.temperature;
 
-            await interaction.reply(
-                `Weather for ${location}:\n- Conditions: ${conditions}\n- Temperature: ${temperature}°F`
-            );
+                await interaction.reply(
+                    `Weather for ${location}:\n- Conditions: ${conditions}\n- Temperature: ${temperature}°F`
+                );
+            } catch {
+                await interaction.reply(
+                    "There was an error finding the location."
+                );
+            }
         });
     },
 };
