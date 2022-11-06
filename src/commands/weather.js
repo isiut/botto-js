@@ -24,9 +24,12 @@ module.exports = {
                 location = result[0].location.name;
                 conditions = result[0].current.skytext;
                 temperature = result[0].current.temperature;
+                feelsLike = result[0].current.feelslike;
+                wind = result[0].current.winddisplay;
+                humidity = result[0].current.humidity;
 
                 await interaction.reply(
-                    `Weather for ${location}:\n- Conditions: ${conditions}\n- Temperature: ${temperature}°F`
+                    `Weather for ${location}:\n• Conditions: ${conditions}\n• Temperature: ${temperature}°F\n• Feels like: ${feelsLike}°F\n• Wind: ${wind}\n• Humidity: ${humidity}%`
                 );
             } catch {
                 await interaction.reply(
