@@ -13,7 +13,6 @@ module.exports = {
         ),
     async execute(interaction) {
         const city = interaction.options.getString("city");
-        let location;
 
         weather.find({ search: city }, async function (err, result) {
             if (err) {
@@ -21,15 +20,20 @@ module.exports = {
             }
 
             try {
-                location = result[0].location.name;
-                conditions = result[0].current.skytext;
-                temperature = result[0].current.temperature;
-                feelsLike = result[0].current.feelslike;
-                wind = result[0].current.winddisplay;
-                humidity = result[0].current.humidity;
+                const location = result[0].location.name;
+                const conditions = result[0].current.skytext;
+                const temperature = result[0].current.temperature;
+                const feelsLike = result[0].current.feelslike;
+                const wind = result[0].current.winddisplay;
+                const humidity = result[0].current.humidity;
 
                 await interaction.reply(
-                    `Weather for ${location}:\n• Conditions: ${conditions}\n• Temperature: ${temperature}°F\n• Feels like: ${feelsLike}°F\n• Wind: ${wind}\n• Humidity: ${humidity}%`
+                    `Weather for ${location}:` +
+                        `\n• Conditions: ${conditions}` +
+                        `\n• Temperature: ${temperature}°F` +
+                        `\n• Feels like: ${feelsLike}°F` +
+                        `\n• Wind: ${wind}` +
+                        `\n• Humidity: ${humidity}%`
                 );
             } catch {
                 await interaction.reply(
