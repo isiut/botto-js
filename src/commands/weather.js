@@ -13,13 +13,12 @@ module.exports = {
         ),
     async execute(interaction) {
         const city = interaction.options.getString("city");
-        let noLocationFound = false;
         let location;
 
         weather.find({ search: city }, async function (err, result) {
             if (err) {
                 console.log(err);
-                noLocationFound = true;
+                return;
             }
 
             location = result[0].location.name;
