@@ -11,6 +11,6 @@ module.exports = {
         const quote = qt.quotes[rand].quote;
         const author = qt.quotes[rand].author;
 
-        await interaction.reply(`${quote}\n\n- ${author}`);
+        await interaction.reply(`${quote}\n- ${author}`);
     },
 };
