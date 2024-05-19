@@ -20,6 +20,7 @@ module.exports = {
 
         await wordnet.init();
         wordnet
+            // eslint-disable-next-line no-undef
             .lookup(word, (skipPointers = true))
             .then(async (definitions) => {
                 definitions.forEach(async (def) => {
@@ -29,7 +30,7 @@ module.exports = {
                 await interaction.reply(msg);
             })
             .catch(async (e) => {
-                await interaction.reply("Word not found");
+                await interaction.reply(`${e}`);
             });
     },
 };

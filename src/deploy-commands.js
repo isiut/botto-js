@@ -2,10 +2,11 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-const { REST, SlashCommandBuilder, Routes } = require("discord.js");
-const { clientId, guildId, token } = require("./config.json");
+const { REST, Routes } = require("discord.js");
+const { clientId, token } = require("./config.json");
 
 const commands = [];
+// eslint-disable-next-line no-undef
 const commandsPath = path.join(__dirname, "commands");
 const commandFiles = fs
     .readdirSync(commandsPath)

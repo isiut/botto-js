@@ -10,6 +10,7 @@ client.once("ready", () => {
 });
 
 client.commands = new Collection();
+// eslint-disable-next-line no-undef
 const commandsPath = path.join(__dirname, "commands");
 const commandFiles = fs
     .readdirSync(commandsPath)
